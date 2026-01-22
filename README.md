@@ -34,11 +34,5 @@ Each section of the website is a separate React component placed inside `src/com
 
 5. Open the URL shown in the terminal (usually http://localhost:5173)
 
-## Development Notes
-- Use one `.jsx` file per section
-- Follow PascalCase for component and file names
-- Do not leave component files empty
-- Keep the website simple and clean
-
 ## Status
 Work in progress.
