@@ -1,6 +1,9 @@
 import HeroPage from "./components/HeroPage";
-  import About from "./components/About";
-  import Schedule from "./components/Schedule";
+import FAQ from "./components/FAQ";
+
+import About from "./components/About";
+import Schedule from "./components/Schedule";
+
 // import TracksPage from "./components/TracksPage";
 // import Events from "./components/Events";
 // import Judges from "./components/Judges";
@@ -13,14 +16,13 @@ function App() {
     <>
       <HeroPage />
       <About />
-      <Schedule />
-      {/* 
-      <TracksPage />
-      <Events />
-      <Judges />
-      <Sponsors />
       <FAQ />
-      <Footer /> */}
+      <Schedule />
+//       <TracksPage />
+//       <Events />
+//       <Judges />
+//       <Sponsors />
+//       <Footer />
     </>
   );
 }
