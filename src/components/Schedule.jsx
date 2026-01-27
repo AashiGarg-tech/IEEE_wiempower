@@ -1,102 +1,147 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import DotGrid from "./DotGrid";
 
 const schedule = [
-  {
-    date: "17th January 2025 – 26th January 2025 · 6:00 PM",
-    title: "Registration Opens [Online]",
-    desc: "Begin your journey by registering your team through our online portal. Ensure all team details and areas of interest are properly documented. Join Discord for all official announcements of our hackathon.",
-  },
-  {
-    date: "24th January 2025",
-    title: "Ideation Phase Begins [Online]",
-    desc: "This phase marks the official start of your brainstorming process. Team members should work together to ideate and plan their project. Reach out to mentors for guidance.",
-  },
-  {
-    date: "26th January 2025 · 12:00 PM",
-    title: "Ideation Phase End [Online]",
-    desc: "Complete your ideas and submit your finalized project concept. Mentors will review your submission and provide feedback.",
-  },
-  {
-    date: "27th January 2025 · 12:00 PM",
-    title: "Development Phase & Mentorship [Online]",
-    desc: "The development phase begins. Teams will start implementing their ideas, with mentorship available throughout the process.",
-  },
-  {
-    date: "31st January 2025 · 11:59 PM",
-    title: "Development Phase Ends [Online]",
-    desc: "The development phase ends. Top teams will be announced soon on Discord.",
-  },
-  {
-    date: "1st February 2025",
-    title: "Presentations & Screening [Online]",
-    desc: "All selected teams must present their PPT along with a prototype via an online presentation to the mentors.",
-  },
-  {
-    date: "2nd February 2025",
-    title: "Shortlisted Teams Announced [Online]",
-    desc: "The best teams will be shortlisted and receive further instructions for the final round.",
-  },
-  {
-    date: "3rd February 2025",
-    title: "Final Presentations & Results [Offline]",
-    desc: "Shortlisted teams must appear at the IGDTUW campus to present before judges. Final results will be announced the same day.\n\nVenue: Auditorium, IGDTUW\nAddress: Madras Road, Opposite St. James Church, Kashmere Gate, Delhi-110006",
-  },
+    {
+        date: "17th January 2025 – 26th January 2025 · 6:00 PM",
+        title: "Registration Opens [Online]",
+        desc: "Begin your journey by registering your team through our online portal.",
+    },
+    {
+        date: "24th January 2025",
+        title: "Ideation Phase Begins [Online]",
+        desc: "This phase marks the official start of brainstorming.",
+    },
+    {
+        date: "26th January 2025 · 12:00 PM",
+        title: "Ideation Phase End [Online]",
+        desc: "Finalize and submit your project concept.",
+    },
+    {
+        date: "27th January 2025 · 12:00 PM",
+        title: "Development Phase Begins [Online]",
+        desc: "Teams start implementing their ideas.",
+    },
+    {
+        date: "31st January 2025 · 11:59 PM",
+        title: "Development Phase Ends [Online]",
+        desc: "Top teams announced on Discord.",
+    },
+    {
+        date: "1st February 2025",
+        title: "Presentations & Screening [Online]",
+        desc: "Teams present their prototype and PPT.",
+    },
+    {
+        date: "2nd February 2025",
+        title: "Shortlisted Teams Announced",
+        desc: "Finalists move to the last round.",
+    },
+    {
+        date: "3rd February 2025",
+        title: "Final Presentations [Offline]",
+        desc: "Venue: IGDTUW Auditorium, Delhi",
+    },
 ];
 
 const Schedule = () => {
-  return (
-    <section className="relative w-full bg-[#0a0514] text-white overflow-hidden py-28 px-6">
-      
-      {/* Background image overlay */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/14553707/pexels-photo-14553707.jpeg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+    const sectionRef = useRef(null);
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto">
-        
-        {/* Heading */}
-        <h2
-          className="text-center text-4xl md:text-5xl font-black uppercase tracking-[0.2em] mb-20"
-          style={{ textShadow: "2px 0 #bc39f3, -1px 0 #00fff9" }}
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"],
+    });
+
+    return (
+        <section
+            ref={sectionRef}
+            className="relative px-6 py-32"
+            style={{ minHeight: "320vh" }}
         >
-          Hackathon <br className="md:hidden" /> Schedule
-        </h2>
+            {/* SAFE BACKGROUND (ABSOLUTE, NOT FIXED) */}
+            {/* BACKGROUND LAYER */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
 
-        {/* Schedule grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-          {schedule.map((item, i) => (
-            <div
-              key={i}
-              className="border border-fuchsia-900/30 bg-fuchsia-950/20 backdrop-blur-sm p-8 md:p-10 rounded-sm shadow-2xl space-y-4"
-            >
-              <p className="text-sm uppercase tracking-widest text-fuchsia-400">
-                {item.date}
-              </p>
+                {/* DARK BASE (important) */}
+                <div className="absolute inset-0 bg-[#0a0514]" />
 
-              <h3 className="text-xl md:text-2xl font-semibold text-pink-200">
-                {item.title}
-              </h3>
+                {/* DOT GRID */}
+                <DotGrid
+                    dotSize={7}
+                    gap={9}
+                    baseColor="#271E37"
+                    activeColor="#9429ff"
+                    proximity={120}
+                    shockRadius={250}
+                    shockStrength={5}
+                    resistance={750}
+                    returnDuration={1.5}
+                    className="absolute inset-0 w-full h-full"
+                />
 
-              <p className="text-pink-100 leading-relaxed whitespace-pre-line">
-                {item.desc}
-              </p>
+                {/* FADE TOP & BOTTOM (kills white edge) */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0514] via-transparent to-[#0a0514]" />
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Ambient glows */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-fuchsia-600/10 rounded-full blur-[130px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-[160px]" />
-    </section>
-  );
+
+            {/* Heading */}
+            <div className="max-w-6xl mx-auto mb-40 text-center relative z-10">
+                <h2
+                    className="text-4xl md:text-5xl font-black uppercase tracking-[0.2em]"
+                    style={{ textShadow: "2px 0 #bc39f3, -1px 0 #00fff9" }}
+                >
+                    Hackathon Schedule
+                </h2>
+            </div>
+
+            {/* STACK */}
+            <div className="relative max-w-4xl mx-auto z-10">
+                {schedule.map((item, i) => {
+                    const start = i / schedule.length;
+                    const end = (i + 1) / schedule.length;
+
+                    const scale = useTransform(
+                        scrollYProgress,
+                        [start, end],
+                        [1, 0.94]
+                    );
+
+                    const y = useTransform(
+                        scrollYProgress,
+                        [start, end],
+                        [0, -i * 20]
+                    );
+
+                    return (
+                        <motion.div
+                            key={i}
+                            className="sticky top-40 mb-40"
+                            style={{
+                                scale,
+                                y,
+                                zIndex: i + 1,
+                            }}
+                        >
+                            <div className="bg-fuchsia-950 border border-fuchsia-800 rounded-3xl p-10 shadow-[0_30px_120px_rgba(148,41,255,0.35)]">
+                                <p className="text-sm uppercase tracking-widest text-fuchsia-400 mb-3">
+                                    {item.date}
+                                </p>
+
+                                <h3 className="text-2xl font-semibold text-pink-200 mb-4">
+                                    {item.title}
+                                </h3>
+
+                                <p className="text-pink-100 leading-relaxed whitespace-pre-line">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </section>
+    );
 };
 
 export default Schedule;

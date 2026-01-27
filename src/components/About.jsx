@@ -1,21 +1,41 @@
 import React from "react";
 import aboutGroup from "./about-group.jpg";
+import DotGrid from './DotGrid';
+
 const AboutSection = () => {
   return (
     <section className="relative w-full bg-[#0a0514] text-white overflow-hidden py-24 px-6">
       
-      {/* Background Image Overlay (same style as hero) */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/14553707/pexels-photo-14553707.jpeg?cs=srgb&dl=pexels-bibekghosh-14553707.jpg&fm=jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+      {/* Background Image Overlay */}
+        <div className="absolute inset-0 w-full h-full opacity-100 pointer-events-none">
+            {/* DotGrid Background */}
+            <DotGrid
+                dotSize={7}
+                gap={9}
+                baseColor="#271E37"
+                activeColor="#9429ff"
+                proximity={120}
+                shockRadius={250}
+                shockStrength={5}
+                resistance={750}
+                returnDuration={1.5}
+                className="w-full h-full"
+            />
 
-      {/* Content */}
+            {/* Optional: Original image as subtle overlay */}
+            <div
+                className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay"
+                style={{
+                    backgroundImage: "url('https://images.pexels.com/photos/14553707/pexels-photo-14553707.jpeg')",
+                }}
+            />
+
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        </div>
+
+
+        {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
