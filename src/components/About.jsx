@@ -2,7 +2,7 @@ import React from "react";
 import aboutGroup from "./about-group.jpg";
 const AboutSection = () => {
   return (
-    <section className="relative w-full bg-[#0a0514] text-white overflow-hidden py-24 px-6">
+    <section id="about" className="relative w-full bg-[#0a0514] text-white overflow-hidden py-24 px-6">
       
       {/* Background Image Overlay (same style as hero) */}
       <div

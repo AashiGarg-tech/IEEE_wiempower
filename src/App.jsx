@@ -8,7 +8,7 @@ import Events from "./components/Events";
 // import Judges from "./components/Judges";
 // import Sponsors from "./components/Sponsors";
 // import FAQ from "./components/FAQ";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,9 +19,9 @@ function App() {
       <TracksPage />
       <Events />
       <FAQ />
-    {/* <Judges />
-      <Sponsors />
-      <Footer /> */}
+      <Footer />
+      {/*<Judges />
+      <Sponsors />*/}
     </>
   );
 }

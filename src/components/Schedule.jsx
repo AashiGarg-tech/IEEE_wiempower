@@ -45,7 +45,7 @@ const schedule = [
 
 const Schedule = () => {
   return (
-    <section className="relative w-full bg-[#0a0514] text-white overflow-hidden py-28 px-6">
+    <section id="schedule" className="relative w-full bg-[#0a0514] text-white overflow-hidden py-28 px-6">
       
       {/* Background image overlay */}
       <div
