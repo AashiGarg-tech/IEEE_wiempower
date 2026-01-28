@@ -1,37 +1,42 @@
 import React from "react";
 import aboutGroup from "./about-group.jpg";
 import DotGrid from './DotGrid';
+import bgImage from "../assets/bg2.png";
 
 const AboutSection = () => {
   return (
-    <section className="relative w-full bg-[#0a0514] text-white overflow-hidden py-24 px-6">
-      
-      {/* Background Image Overlay */}
-        <div className="absolute inset-0 w-full h-full opacity-100 pointer-events-none">
-            {/* DotGrid Background */}
+    <section className="relative min-h-screen w-full text-white font-sans overflow-hidden flex flex-col items-center justify-center p-6">
+
+        {/* ================= BACKGROUND LAYERS ================= */}
+        <div className="absolute inset-0 pointer-events-none -z-10">
+
+            {/* 🔹 BASE BACKGROUND IMAGE */}
+            <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${bgImage})` }}
+            />
+
+            {/* 🔹 TOP BLUR (sirf upar) */}
+            <div
+                className="
+                               absolute top-0 left-0 w-full h-[35%]
+                               backdrop-blur-md
+                               bg-gradient-to-b from-[#0a0514]/90 to-transparent"
+            />
+
+            {/* 🔹 DOT GRID */}
             <DotGrid
                 dotSize={7}
                 gap={9}
                 baseColor="#271E37"
-                activeColor="#9429ff"
+                activeColor="#F4E4FF"
                 proximity={120}
                 shockRadius={250}
                 shockStrength={5}
                 resistance={750}
                 returnDuration={1.5}
-                className="w-full h-full"
+                className="absolute inset-0 w-full h-full"
             />
-
-            {/* Optional: Original image as subtle overlay */}
-            <div
-                className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay"
-                style={{
-                    backgroundImage: "url('https://images.pexels.com/photos/14553707/pexels-photo-14553707.jpeg')",
-                }}
-            />
-
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         </div>
 
 
