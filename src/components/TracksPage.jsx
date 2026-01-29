@@ -52,7 +52,7 @@ const TracksPage = () => {
     ];
 
     return (
-        <section className="relative min-h-screen w-full text-white font-sans overflow-hidden flex flex-col items-center justify-center p-6">
+        <section className="relative min-h-screen w-full text-white font-sans overflow-hidden flex flex-col items-center justify-center p-6 pt-24">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none -z-10">
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bgImage})` }} />
