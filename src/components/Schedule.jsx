@@ -34,7 +34,7 @@ const schedule = [
 
 const Schedule = () => {
     return (
-        <section className="relative min-h-screen w-full text-white font-sans overflow-hidden py-20 px-6">
+        <section className="relative min-h-screen w-full text-white font-sans overflow-hidden py-20 px-6 pt-24">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none -z-10">
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bgImage})` }} />

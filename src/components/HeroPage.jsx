@@ -3,8 +3,8 @@ import FuzzyText from './FuzzyText.jsx';
 import DotGrid from "./DotGrid.jsx";
 import bgImage from "../assets/bg.png";
 
+const words = ["discover", "develop", "deliver"];
 const HomePage = () => {
-    const words = ["discover", "develop", "deliver"];
     const [displayedWord, setDisplayedWord] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -47,7 +47,7 @@ const HomePage = () => {
                         baseIntensity={0.3}
                         hoverIntensity={0.7}
                         enableHover={true}
-                        fontSize="clamp(6rem, 18vw, 11rem)"
+                        fontSize="clamp(5rem, 10vw, 9rem)"
                         fontWeight={900}
                         fontFamily="'Inter', sans-serif"
                         color="#ffffff"
@@ -80,7 +80,7 @@ const HomePage = () => {
                         {/* Multi-layer shine */}
                         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-fuchsia-400/8 via-white/3 to-purple-400/8 opacity-0 group-hover:opacity-100 blur-xl -z-10 animate-pulse-slow" />
 
-                        <p className="text-xl md:text-2xl lg:text-3xl font-light leading-tight text-white/95 drop-shadow-[0_5px_15px_rgba(255,255,255,0.3)] relative z-10 tracking-[0.02em] text-center max-w-2xl">
+                        <p className="text-xl md:text-xl lg:text-2xl font-light leading-tight text-white/95 drop-shadow-[0_5px_15px_rgba(255,255,255,0.3)] relative z-10 tracking-[0.02em] text-center max-w-2xl">
                             Empowering women engineers to solve real-world challenges through innovation
                         </p>
                     </div>
@@ -90,9 +90,9 @@ const HomePage = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-2xl">
                     {/* REGISTER BUTTON */}
                     <a href="#register" className="group relative w-full lg:w-auto px-10 py-5 md:px-14 md:py-6
-                        bg-gradient-to-r from-fuchsia-500/20 via-white/8 to-purple-500/20 backdrop-blur-2xl border-2 border-gradient-to-r border-fuchsia-400/40 shadow-[0_20px_50px_rgba(236,72,153,0.4)]
+                        bg-gradient-to-r from-fuchsia-500/20 via-white/8 to-purple-500/20 backdrop-blur-2xl border-2 border-gradient-to-r border-fuchsia-400/40 shadow-[20px_20px_20px_2px_rgba(247,194,255,0.2)]
                         rounded-3xl text-xl md:text-2xl font-bold text-white/95 hover:text-white
-                        hover:from-fuchsia-400/40 hover:to-purple-400/40 hover:border-fuchsia-300/60 hover:shadow-[0_30px_70px_rgba(236,72,153,0.6)]
+                        hover:from-fuchsia-400/40 hover:to-purple-400/40 hover:border-fuchsia-300/60 hover:shadow-[20px_20px_20px_2px_rgba(195,127,206,0.4)]
                         hover:scale-[1.05] hover:-translate-y-2 active:scale-[0.98] transition-all duration-500">
 
                         <span className="relative z-10 flex items-center gap-3">
@@ -109,7 +109,7 @@ const HomePage = () => {
                     {/* IEEE TAG */}
                     <div className="relative w-full lg:w-72 h-14 md:h-16 lg:h-18 rounded-2xl
                         bg-gradient-to-r from-white/10 to-fuchsia-500/10 backdrop-blur-2xl border border-white/20 shadow-[0_15px_35px_rgba(0,0,0,0.5)]
-                        hover:border-fuchsia-400/40 hover:shadow-[0_20px_45px_rgba(236,72,153,0.3)] transition-all duration-400 flex items-center justify-center group">
+                        hover:border-fuchsia-400/40 hover:shadow-[20px_20px_20px_2px_rgba(195,127,206,0.4)] transition-all duration-400 flex items-center justify-center group">
 
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/20 to-fuchsia-400/20 opacity-0 group-hover:opacity-60 blur-sm transition-all duration-400" />
 
