@@ -47,7 +47,7 @@ const HomePage = () => {
                         baseIntensity={0.3}
                         hoverIntensity={0.7}
                         enableHover={true}
-                        fontSize="clamp(6rem, 18vw, 11rem)"
+                        fontSize="clamp(5rem, 10vw, 9rem)"
                         fontWeight={900}
                         fontFamily="'Inter', sans-serif"
                         color="#ffffff"
@@ -80,7 +80,7 @@ const HomePage = () => {
                         {/* Multi-layer shine */}
                         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-fuchsia-400/8 via-white/3 to-purple-400/8 opacity-0 group-hover:opacity-100 blur-xl -z-10 animate-pulse-slow" />
 
-                        <p className="text-xl md:text-2xl lg:text-3xl font-light leading-tight text-white/95 drop-shadow-[0_5px_15px_rgba(255,255,255,0.3)] relative z-10 tracking-[0.02em] text-center max-w-2xl">
+                        <p className="text-xl md:text-xl lg:text-2xl font-light leading-tight text-white/95 drop-shadow-[0_5px_15px_rgba(255,255,255,0.3)] relative z-10 tracking-[0.02em] text-center max-w-2xl">
                             Empowering women engineers to solve real-world challenges through innovation
                         </p>
                     </div>
