@@ -73,25 +73,47 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutGroup from "./about-group.jpg";
+import DotGrid from './DotGrid';
+import bgImage from "../assets/bg2.png";
 
 const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="relative w-full bg-[#0a0514] text-white overflow-hidden py-24 px-6"
-    >
-      {/* Background */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/14553707/pexels-photo-14553707.jpeg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+    <section className="relative min-h-screen w-full text-white font-sans overflow-hidden flex flex-col items-center justify-center p-6">
 
-      {/* Content */}
+        {/* ================= BACKGROUND LAYERS ================= */}
+        <div className="absolute inset-0 pointer-events-none -z-10">
+
+            {/* 🔹 BASE BACKGROUND IMAGE */}
+            <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${bgImage})` }}
+            />
+
+            {/* 🔹 TOP BLUR (sirf upar) */}
+            <div
+                className="
+                               absolute top-0 left-0 w-full h-[35%]
+                               backdrop-blur-md
+                               bg-gradient-to-b from-[#0a0514]/90 to-transparent"
+            />
+
+            {/* 🔹 DOT GRID */}
+            <DotGrid
+                dotSize={7}
+                gap={9}
+                baseColor="#271E37"
+                activeColor="#F4E4FF"
+                proximity={120}
+                shockRadius={250}
+                shockStrength={5}
+                resistance={750}
+                returnDuration={1.5}
+                className="absolute inset-0 w-full h-full"
+            />
+        </div>
+
+
+        {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
