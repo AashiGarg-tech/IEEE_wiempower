@@ -8,22 +8,33 @@ import Events from "./components/Events";
 import Judges from "./components/Judges";
 
 // import Sponsors from "./components/Sponsors";
+// import FAQ from "./components/FAQ";
+// import Footer from "./components/Footer";
+import Footer from "./components/navbar";
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <HeroPage />
-      <About />
-      <Schedule />
-      <TracksPage />
-      <Events />
-      <Judges />
-      <FAQ />
-      <Footer />
-      {/*<Sponsors />*/}
+        <div className="relative">
+            {/* Transparent blurry navbar - fixed top */}
+            <Navbar />
+
+            {/* Hero page - pt-16 add for navbar space */}
+            <HeroPage />
+            <About />
+            <Schedule />
+            <TracksPage />
+            {/* <Events /> */}
+            <FAQ />
+            {/* <Judges />
+      <Sponsors />
+      <Footer /> */}
+        </div>
     </>
+
+
   );
 }
 export default App;
