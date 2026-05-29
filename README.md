@@ -55,5 +55,3 @@ Each section of the website is a separate React component placed inside `src/com
 - Click Compare & pull request
 - Submit the PR to the main branch of the original repository
 
-## Status
-Work in progress.
